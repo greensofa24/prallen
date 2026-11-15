@@ -15,6 +15,7 @@ var playing_dialogue = false
 @onready var alan = $Alan
 
 func _ready() -> void:
+	player.sprite.material.set_shader_parameter("shooting", false)
 	add_child(canvas_layer)
 
 	if dialogue:

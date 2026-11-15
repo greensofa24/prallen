@@ -25,7 +25,7 @@ sources/4 = SubResource("TileSetScenesCollectionSource_2md8r")
 
 [node name="Node2D" type="Node2D" unique_id=1074105985]
 script = ExtResource("1_i8dno")
-dialogue = Array[String](["Hey, are ya tryna stop these [color=red]thieves[/color]?", "Well, they took somethin' from me so I'd be happy to assist.", "To get over that, hold 1 or more [color=yellow]arrow keys[/color], and press [color=yellow]Z[/color] afterwards to [color=orange]shoot[/color] in that direction.", "Oh, and if you're going too fast, hold [color=yellow]X[/color] to brake."])
+dialogue = Array[String](["Hey, are ya tryna stop these [color=red]thieves[/color]?", "Well, they took somethin' from me so I'd be happy to assist.", "To get over that, hold 1 or more [color=yellow]arrow keys[/color], and press [color=yellow]Z[/color] afterwards to [color=orange]shoot[/color] in that direction.", "Oh, and if you're going too fast, hold [color=yellow]X[/color] to brake.", "If you fall off, press  [color=yellow]R[/color] to restart."])
 
 [node name="Player" parent="." unique_id=1652159246 instance=ExtResource("2_fbemd")]
 z_index = 1

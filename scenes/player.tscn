@@ -34,6 +34,7 @@ vframes = 2
 wait_time = 0.2
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=643943605]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
