@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://kh5ssnvg254e"]
+
+[ext_resource type="Script" uid="uid://dk0e81d7yg7w2" path="res://scripts/dialogue.gd" id="1_jwyou"]
+[ext_resource type="FontFile" uid="uid://i1y30l7fc7kk" path="res://speaking/Acknowledgement.otf" id="2_3n4vj"]
+[ext_resource type="Texture2D" uid="uid://bni42dmpvyyqe" path="res://sprites/alan.png" id="3_bfpow"]
+
+[node name="Panel" type="Panel" unique_id=1341720792]
+offset_left = 48.0
+offset_top = 300.0
+offset_right = 1104.0
+offset_bottom = 600.0
+script = ExtResource("1_jwyou")
+
+[node name="Label" type="Label" parent="." unique_id=1126697113]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 16.0
+offset_right = 1040.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("2_3n4vj")
+theme_override_font_sizes/font_size = 50
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=921365440]
+position = Vector2(140, 150)
+scale = Vector2(4, 4)
+texture = ExtResource("3_bfpow")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=514785409]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://xqrkbiljl8ie"]
+
+[ext_resource type="Script" uid="uid://chisiuxqci45d" path="res://scripts/spike.gd" id="1_7a7y0"]
+[ext_resource type="Texture2D" uid="uid://cxntuxuki4355" path="res://sprites/spike.png" id="2_d2mqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05h6e"]
+size = Vector2(60, 60)
+
+[node name="Area2D" type="Area2D" unique_id=467152380]
+script = ExtResource("1_7a7y0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1433681967]
+position = Vector2(0, -1.9073486e-06)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_05h6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=294237170]
+texture = ExtResource("2_d2mqm")
+vframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1648081214]
+position = Vector2(0, -32)
+texture = ExtResource("2_d2mqm")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1885877081]
+position = Vector2(32, 0)
+rotation = 1.5707964
+texture = ExtResource("2_d2mqm")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=2093410731]
+position = Vector2(0, 32)
+rotation = 3.1415927
+texture = ExtResource("2_d2mqm")
+vframes = 2
+frame = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=437969413]
+position = Vector2(-32, 0)
+rotation = 4.712389
+texture = ExtResource("2_d2mqm")
+vframes = 2
+frame = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

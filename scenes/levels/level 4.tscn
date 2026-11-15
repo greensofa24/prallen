@@ -1,0 +1,63 @@
+[gd_scene format=4 uid="uid://dqwam1ifad7qv"]
+
+[ext_resource type="Script" uid="uid://bbjv7uel4nxr2" path="res://scripts/level.gd" id="1_ni5h1"]
+[ext_resource type="PackedScene" uid="uid://cupm46a0ej2mg" path="res://scenes/player.tscn" id="2_x0a4q"]
+[ext_resource type="PackedScene" uid="uid://c6iycgrgvvp75" path="res://scenes/alan.tscn" id="3_yjxh0"]
+[ext_resource type="Texture2D" uid="uid://dy44bmmn4avk6" path="res://sprites/ramp.png" id="4_q1xes"]
+[ext_resource type="Texture2D" uid="uid://butaynmq55ugf" path="res://sprites/solid.png" id="5_fel2g"]
+[ext_resource type="PackedScene" uid="uid://bwudxifrqctwi" path="res://scenes/flag.tscn" id="6_k0wbf"]
+[ext_resource type="PackedScene" uid="uid://xqrkbiljl8ie" path="res://scenes/spike.tscn" id="7_ud0rv"]
+[ext_resource type="PackedScene" uid="uid://cv5ix1gybi66v" path="res://scenes/onlooker.tscn" id="8_x0a4q"]
+[ext_resource type="PackedScene" uid="uid://x43m3tku5dft" path="res://scenes/blue_flag.tscn" id="9_yjxh0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32tst"]
+texture = ExtResource("4_q1xes")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oii7c"]
+texture = ExtResource("5_fel2g")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2md8r"]
+scenes/1/scene = ExtResource("6_k0wbf")
+scenes/2/scene = ExtResource("7_ud0rv")
+
+[sub_resource type="TileSet" id="TileSet_fbemd"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_oii7c")
+sources/4 = SubResource("TileSetScenesCollectionSource_2md8r")
+sources/0 = SubResource("TileSetAtlasSource_32tst")
+
+[node name="Node2D" type="Node2D" unique_id=1074105985]
+script = ExtResource("1_ni5h1")
+dialogue = Array[String](["It's one of the [color=red]thieves[/color].", "Quick, get rid of it.", "I bet it can't take a [color=orange]shot[/color].", "[color=blue]Blue[/color] flags only work if all [color=red]enemies[/color] have been defeated."])
+enemies = true
+
+[node name="Player" parent="." unique_id=1652159246 instance=ExtResource("2_x0a4q")]
+z_index = 1
+position = Vector2(-512, 96)
+
+[node name="Alan" parent="." unique_id=778778369 instance=ExtResource("3_yjxh0")]
+position = Vector2(-384, 160)
+
+[node name="TileMap" type="Node2D" parent="." unique_id=2073671123]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=914458635]
+tile_map_data = PackedByteArray("AADu/wkAAgABAAAAAADv/wkAAgABAAAAAADw/wkAAgABAAAAAADx/wkAAgABAAAAAADy/wkAAgABAAAAAADz/wkAAgABAAAAAAD0/wkAAgABAAAAAAD1/wkAAgABAAAAAAD2/wkAAgABAAAAAAD3/wkAAgABAAAAAAD4/wkAAgABAAAAAAD5/wkAAgABAAAAAAD6/wkAAgABAAAAAAD7/wkAAgABAAAAAAD8/wkAAgABAAAAAAD9/wkAAgABAAAAAAD+/wkAAgABAAAAAAD//wkAAgABAAAAAAAAAAkAAgABAAAAAAABAAkAAgABAAAAAAACAAkAAgABAAAAAAADAAkAAgABAAAAAAAEAAkAAgABAAAAAAAFAAkAAgABAAAAAAAGAAkAAgABAAAAAAAHAAkAAgABAAAAAAAIAAkAAgABAAAAAAAJAAkAAgABAAAAAAAKAAkAAgABAAAAAAALAAkAAgABAAAAAAAMAAkAAgABAAAAAAANAAkAAgABAAAAAAAOAAkAAgABAAAAAAAPAAkAAgABAAAAAAAQAAkAAgABAAAAAAARAAkAAgABAAAAAADu/wcAAgABAAAAAADu/wgAAgABAAAAAADv/wcAAgABAAAAAADv/wgAAgABAAAAAADw/wcAAgABAAAAAADw/wgAAgABAAAAAADx/wcAAgABAAAAAADx/wgAAgABAAAAAADy/wcAAgABAAAAAADy/wgAAgABAAAAAADz/wcAAgABAAAAAADz/wgAAgABAAAAAAD0/wcAAgABAAAAAAD0/wgAAgABAAAAAAD1/wcAAgABAAAAAAD1/wgAAgABAAAAAAD2/wcAAgABAAAAAAD2/wgAAgABAAAAAAD3/wcAAgABAAAAAAD3/wgAAgABAAAAAAD4/wcAAgABAAAAAAD4/wgAAgABAAAAAAD5/wcAAgABAAAAAAD5/wgAAgABAAAAAAD6/wcAAgABAAAAAAD6/wgAAgABAAAAAAD7/wcAAgABAAAAAAD7/wgAAgABAAAAAAD8/wcAAgABAAAAAAD8/wgAAgABAAAAAAD9/wcAAgABAAAAAAD9/wgAAgABAAAAAAD+/wcAAgABAAAAAAD+/wgAAgABAAAAAAD//wcAAgABAAAAAAD//wgAAgABAAAAAAAAAAcAAgABAAAAAAAAAAgAAgABAAAAAAABAAcAAgABAAAAAAABAAgAAgABAAAAAAACAAcAAgABAAAAAAACAAgAAgABAAAAAAADAAcAAgABAAAAAAADAAgAAgABAAAAAAAEAAcAAgABAAAAAAAEAAgAAgABAAAAAAAFAAcAAgABAAAAAAAFAAgAAgABAAAAAAAGAAcAAgABAAAAAAAGAAgAAgABAAAAAAAHAAcAAgABAAAAAAAHAAgAAgABAAAAAAAIAAcAAgABAAAAAAAIAAgAAgABAAAAAAAJAAcAAgABAAAAAAAJAAgAAgABAAAAAAAKAAcAAgABAAAAAAAKAAgAAgABAAAAAAALAAcAAgABAAAAAAALAAgAAgABAAAAAAAMAAcAAgABAAAAAAAMAAgAAgABAAAAAAANAAcAAgABAAAAAAANAAgAAgABAAAAAAAOAAcAAgABAAAAAAAOAAgAAgABAAAAAAAPAAcAAgABAAAAAAAPAAgAAgABAAAAAAAQAAcAAgABAAAAAAAQAAgAAgABAAAAAAARAAcAAgABAAAAAAARAAgAAgABAAAAAADu/wYAAgAAAAAAAADv/wYAAgAAAAAAAADw/wYAAgAAAAAAAADx/wYAAgAAAAAAAADy/wYAAgAAAAAAAADz/wYAAgAAAAAAAAD0/wYAAgAAAAAAAAD1/wYAAgAAAAAAAAD2/wYAAgAAAAAAAAD3/wYAAgAAAAAAAAD4/wYAAgAAAAAAAAD5/wYAAgAAAAAAAAD6/wYAAgAAAAAAAAD7/wYAAgAAAAAAAAD8/wYAAgAAAAAAAAD9/wYAAgAAAAAAAAACAAYAAgAAAAAAAAADAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAAGAAYAAgAAAAAAAAAHAAYAAgAAAAAAAAAIAAYAAgAAAAAAAAAJAAYAAgAAAAAAAAAKAAYAAgAAAAAAAAALAAYAAgAAAAAAAAAMAAYAAgAAAAAAAAANAAYAAgAAAAAAAAAOAAYAAgAAAAAAAAAPAAYAAgAAAAAAAAAQAAYAAgAAAAAAAAARAAYAAgAAAAAAAAD+/wYAAgAAAAAAAAD//wYAAgAAAAAAAAAAAAYAAgAAAAAAAAABAAYAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_fbemd")
+
+[node name="Onlooker 1" parent="." unique_id=959237417 instance=ExtResource("8_x0a4q")]
+position = Vector2(-384, 32)
+
+[node name="Onlooker 2" parent="." unique_id=91234263 instance=ExtResource("8_x0a4q")]
+position = Vector2(-640, 160)
+
+[node name="Area2D" parent="." unique_id=805696446 instance=ExtResource("9_yjxh0")]
+position = Vector2(96, 192)

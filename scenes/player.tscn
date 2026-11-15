@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cupm46a0ej2mg"]
+
+[ext_resource type="Script" uid="uid://dcyyqon4x3j41" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://bv7iyk73i83k4" path="res://sprites/player.png" id="2_g2els"]
+[ext_resource type="Shader" uid="uid://deciqg5s6spxm" path="res://shaders/player.gdshader" id="2_qhqgy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2q6dc"]
+bounce = 0.7
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05h6e"]
+radius = 17.029387
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjxh0"]
+shader = ExtResource("2_qhqgy")
+shader_parameter/shooting = false
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1652159246]
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_2q6dc")
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=719707795]
+shape = SubResource("CircleShape2D_05h6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=248529157]
+material = SubResource("ShaderMaterial_yjxh0")
+texture = ExtResource("2_g2els")
+hframes = 2
+vframes = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=950820877]
+
+[node name="ChargeTimer" type="Timer" parent="." unique_id=1705313121]
+wait_time = 0.2
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=643943605]
+one_shot = true
+
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

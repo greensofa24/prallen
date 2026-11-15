@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c4noyuxxpbss0"]
+
+[ext_resource type="PackedScene" uid="uid://kh5ssnvg254e" path="res://scenes/dialogue.tscn" id="1_ek3oe"]
+[ext_resource type="Shader" uid="uid://cqqm008dfpwyo" path="res://shaders/recharge.gdshader" id="2_mg525"]
+[ext_resource type="Texture2D" uid="uid://cdm7y3nw0m7p2" path="res://sprites/recharge_bar.png" id="3_kfwc7"]
+[ext_resource type="Texture2D" uid="uid://duchsp7dyw2k2" path="res://sprites/shield.png" id="4_mg525"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05h6e"]
+shader = ExtResource("2_mg525")
+shader_parameter/charge = 5
+shader_parameter/ability = false
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=817200646]
+process_mode = 3
+
+[node name="Panel" parent="." unique_id=1341720792 instance=ExtResource("1_ek3oe")]
+visible = false
+
+[node name="ChargeBar" type="Sprite2D" parent="." unique_id=659733491]
+material = SubResource("ShaderMaterial_05h6e")
+position = Vector2(1068, 35)
+scale = Vector2(5, 5)
+texture = ExtResource("3_kfwc7")
+
+[node name="Shield" type="Sprite2D" parent="." unique_id=460098626]
+position = Vector2(1112, 88)
+scale = Vector2(2, 2)
+texture = ExtResource("4_mg525")
+vframes = 2
+frame = 1

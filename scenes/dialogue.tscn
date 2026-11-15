@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://kh5ssnvg254e"]
+
+[ext_resource type="Script" uid="uid://dk0e81d7yg7w2" path="res://scripts/dialogue.gd" id="1_jwyou"]
+[ext_resource type="FontFile" uid="uid://i1y30l7fc7kk" path="res://speaking/Acknowledgement.otf" id="2_3n4vj"]
+[ext_resource type="AudioStream" uid="uid://bkn518bgh36jm" path="res://sounds/alan_talk.wav" id="4_fyky8"]
+
+[sub_resource type="FontVariation" id="FontVariation_bfpow"]
+base_font = ExtResource("2_3n4vj")
+
+[node name="Panel" type="Panel" unique_id=1341720792]
+offset_left = 48.0
+offset_top = 300.0
+offset_right = 1104.0
+offset_bottom = 600.0
+script = ExtResource("1_jwyou")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=49686124]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 16.0
+offset_right = 1040.0
+offset_bottom = 286.0
+theme_override_fonts/normal_font = SubResource("FontVariation_bfpow")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=921365440]
+position = Vector2(138, 150)
+scale = Vector2(4, 4)
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1889306919]
+stream = ExtResource("4_fyky8")
+max_polyphony = 20
+
+[node name="Timer" type="Timer" parent="." unique_id=514785409]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" format=3 uid="uid://dqichyrs33qgp"]
+
+[sub_resource type="SystemFont" id="SystemFont_johxq"]
+
+[resource]
+base_font = SubResource("SystemFont_johxq")
+spacing_top = -7

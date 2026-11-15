@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://x43m3tku5dft"]
+
+[ext_resource type="Shader" uid="uid://jutx5n3ujkro" path="res://shaders/blue_flag.gdshader" id="1_j0j4d"]
+[ext_resource type="Texture2D" uid="uid://c5ojsoi2cuvtp" path="res://sprites/flag.png" id="2_j0j4d"]
+[ext_resource type="Script" uid="uid://d1gmxrxxm55tj" path="res://scripts/blue_flag.gd" id="2_l1yrv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nfgt"]
+shader = ExtResource("1_j0j4d")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05h6e"]
+size = Vector2(40, 93)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0j4d"]
+shader = ExtResource("1_j0j4d")
+
+[node name="Area2D" type="Area2D" unique_id=805696446]
+material = SubResource("ShaderMaterial_7nfgt")
+script = ExtResource("2_l1yrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1615870874]
+position = Vector2(0, -30.5)
+shape = SubResource("RectangleShape2D_05h6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1304016446]
+material = SubResource("ShaderMaterial_j0j4d")
+position = Vector2(0, -32)
+texture = ExtResource("2_j0j4d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

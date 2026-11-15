@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dn7uupiimto42"]
+
+[ext_resource type="PackedScene" uid="uid://cupm46a0ej2mg" path="res://scenes/player.tscn" id="1_u1y20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05h6e"]
+size = Vector2(2000, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q6dc"]
+size = Vector2(40, 2000)
+
+[node name="Node2D" type="Node2D" unique_id=1131246439]
+
+[node name="CharacterBody2D" parent="." unique_id=607935169 instance=ExtResource("1_u1y20")]
+position = Vector2(-180, -358)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1835216872]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1302666287]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=495359271]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_05h6e")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1273028731]
+offset_left = -1000.0
+offset_right = 1000.0
+offset_bottom = 40.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1866823536]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=683661971]
+position = Vector2(-987, -991)
+shape = SubResource("RectangleShape2D_2q6dc")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=1322117799]
+offset_left = -1007.0
+offset_top = -1981.0
+offset_right = -967.0
+offset_bottom = 19.0
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=2018624393]
+position = Vector2(1968, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=553894930]
+position = Vector2(-987, -991)
+shape = SubResource("RectangleShape2D_2q6dc")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3" unique_id=1284017051]
+offset_left = -1007.0
+offset_top = -1981.0
+offset_right = -967.0
+offset_bottom = 19.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1585060311]
+offset_left = -1004.0
+offset_top = -992.0
+offset_right = -964.0
+offset_bottom = -952.0
+color = Color(0, 1, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1974060475]
+offset_left = 960.0
+offset_top = -992.0
+offset_right = 1000.0
+offset_bottom = -952.0
+color = Color(0, 1, 1, 1)

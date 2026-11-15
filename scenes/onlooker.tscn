@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cv5ix1gybi66v"]
+
+[ext_resource type="Texture2D" uid="uid://iamjdaans1u5" path="res://sprites/onlooker.png" id="1_3itmd"]
+[ext_resource type="Script" uid="uid://biawuf3upnj7s" path="res://scripts/onlooker.gd" id="1_3je8n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05h6e"]
+radius = 20.0
+
+[node name="Area2D" type="Area2D" unique_id=959237417]
+script = ExtResource("1_3je8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087649635]
+shape = SubResource("CircleShape2D_05h6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=863620121]
+texture = ExtResource("1_3itmd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
